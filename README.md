@@ -62,13 +62,18 @@ luna-send -f -n 1 luna://com.webos.service.audio/master/setVolume '{"volume":30}
 vi /media/cryptofs/apps/usr/palm/applications/com.instantbits.cast.webvideo/appinfo.json
 
 2.add a line
+
 "supportGIP":true,
 
 3.make a full preload so that the data is updated with the command
 reboot
 
 3.register the app as a login device
+
 luna-send-pub -n 1 'luna://com.webos.service.eim/addDevice' '{"appId":"com.instantbits.cast.webvideo", "pigImage":""}'
+
+# to remove the device 
+
 luna-send-pub -n 1 'luna://com.webos.service.eim/deleteDevice' '{"appId":"com.instantbits.cast.webvideo", "pigImage":""}'
 
 
